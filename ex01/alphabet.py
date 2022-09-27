@@ -18,8 +18,9 @@ def shutudai():
     print("表示文字")
     a1 = random.sample(d,c)
     a2 = set(a1)
-    ad = set(d)
-    a22 = ad - a2
+    #ad = set(d)
+    #a22 = ad - a2
+    a22 = set(d) - a2
     a23 = list(a22)
     for i in a23:
         print(i,end=" ")
