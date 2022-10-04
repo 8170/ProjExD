@@ -16,7 +16,10 @@ def button_number(event):#練習3
 
 def click_equal(event):
     eqn = entry.get()
-    res = eval(eqn)
+    try:
+        res = eval(eqn)
+    except ZeroDivisionError as e:
+        tkm.showwarning("警告","あなたは計算を知らないですね")
     entry.delete(0,tk.END)
     entry.insert(tk.END,res)
 
@@ -31,7 +34,7 @@ def click_del(event):
 
 
 root.title("tk")#練習1
-root.geometry("300x600")
+root.geometry("400x800")
 
 entry = tk.Entry(root,width=10,font=("Times New Roman",40),justify="right")#練習4
 entry.grid(row=0,column=0,columnspan=3)
@@ -47,8 +50,8 @@ btn.grid(row=1,column=1)
 
 r,c = 2,0#練習2
 numbers = list(range(9,-1,-1))
-operators = ["00","+"]
-for i,num in enumerate(numbers+operators,1):
+others = ["00","."]
+for i,num in enumerate(numbers+others,1):
     btn = tk.Button(root,text=f"{num}",font=("Times New Roman",30),width=4,height=2)
     btn.bind("<1>",button_number)
     btn.grid(row=r,column=c)
@@ -58,10 +61,16 @@ for i,num in enumerate(numbers+operators,1):
         c = 0
 
 
+operations = ["+","-","*","/"]
+for i,num in enumerate(operations,1):
+    btn = tk.Button(root,text=f"{num}",font=("Times New Roman",30),width=4,height=2)
+    btn.bind("<1>",button_number)
+    btn.grid(row=i,column=4)
+
 
 btn = tk.Button(root,text=f"=",font=("Times New Roman",30),width=4,height=2)
 btn.bind("<1>",click_equal)
-btn.grid(row=r,column=c)
+btn.grid(row=5,column=4)
 
 
 
