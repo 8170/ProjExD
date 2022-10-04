@@ -10,10 +10,12 @@ root = tk.Tk()#tkモジュールの中のTKのインスタンスを生成
 def button_number(event):#練習3
     btn = event.widget
     num = int(btn["text"])
-    tkm.showinfo(num,f"{num}のボタンが押されました")
+    #tkm.showinfo(num,f"{num}のボタンが押されました")
+    entry.insert(tk.END,num)#末尾に挿入
+    #entry.isnert(0,num)#先頭に数字が置かれるので良くない
 
 root.title("tk")#練習1
-root.geometry("300x500")
+root.geometry("300x600")
 
 entry = tk.Entry(root,width=10,font=("Times New Roman",40),justify="right")#練習4
 entry.grid(row=0,column=0,columnspan=3)
