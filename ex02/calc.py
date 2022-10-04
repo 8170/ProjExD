@@ -23,7 +23,11 @@ def click_equal(event):
 def click_alldel(event):
     entry.delete(0,tk.END)
 
-
+def click_del(event):
+    num = entry.get()
+    num_new = num[:-1]
+    entry.delete(0,tk.END)
+    entry.insert(tk.END,num_new)
 
 
 root.title("tk")#練習1
@@ -37,7 +41,7 @@ btn.bind("<1>",click_alldel)
 btn.grid(row=1,column=0)
 
 btn = tk.Button(root,text=f"C",font=("Times New Roman",30),width=4,height=2)
-btn.bind("<1>",click_alldel)
+btn.bind("<1>",click_del)
 btn.grid(row=1,column=1)
 
 
