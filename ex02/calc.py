@@ -20,6 +20,11 @@ def click_equal(event):
     entry.delete(0,tk.END)
     entry.insert(tk.END,res)
 
+def click_alldel(event):
+    entry.delete(0,tk.END)
+
+
+
 
 root.title("tk")#練習1
 root.geometry("300x600")
@@ -27,9 +32,18 @@ root.geometry("300x600")
 entry = tk.Entry(root,width=10,font=("Times New Roman",40),justify="right")#練習4
 entry.grid(row=0,column=0,columnspan=3)
 
-r,c = 1,0#練習2
+btn = tk.Button(root,text=f"AC",font=("Times New Roman",30),width=4,height=2)
+btn.bind("<1>",click_alldel)
+btn.grid(row=1,column=0)
+
+btn = tk.Button(root,text=f"C",font=("Times New Roman",30),width=4,height=2)
+btn.bind("<1>",click_alldel)
+btn.grid(row=1,column=1)
+
+
+r,c = 2,0#練習2
 numbers = list(range(9,-1,-1))
-operators = ["+"]
+operators = ["00","+"]
 for i,num in enumerate(numbers+operators,1):
     btn = tk.Button(root,text=f"{num}",font=("Times New Roman",30),width=4,height=2)
     btn.bind("<1>",button_number)
@@ -38,6 +52,8 @@ for i,num in enumerate(numbers+operators,1):
     if i%3 == 0:
         r += 1
         c = 0
+
+
 
 btn = tk.Button(root,text=f"=",font=("Times New Roman",30),width=4,height=2)
 btn.bind("<1>",click_equal)
