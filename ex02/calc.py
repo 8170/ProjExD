@@ -14,6 +14,13 @@ def button_number(event):#練習3
     entry.insert(tk.END,num)#末尾に挿入
     #entry.isnert(0,num)#先頭に数字が置かれるので良くない
 
+def click_equal(event):
+    eqn = entry.get()
+    res = eval(eqn)
+    entry.delete(0,tk.END)
+    entry.insert(tk.END,res)
+
+
 root.title("tk")#練習1
 root.geometry("300x600")
 
@@ -32,7 +39,9 @@ for i,num in enumerate(numbers+operators,1):
         r += 1
         c = 0
 
-
+btn = tk.Button(root,text=f"=",font=("Times New Roman",30),width=4,height=2)
+btn.bind("<1>",click_equal)
+btn.grid(row=r,column=c)
 
 
 
