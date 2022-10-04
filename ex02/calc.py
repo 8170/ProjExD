@@ -38,7 +38,7 @@ def click_del(event):
     entry.delete(0,tk.END)
     entry.insert(tk.END,num_new)
 
-def jijou(event):
+def click_jijou(event):
     num = entry.get()
     num_a1 = int(num)
     num_a2 = num_a1*num_a1
@@ -61,7 +61,7 @@ btn.bind("<1>",click_del)
 btn.grid(row=1,column=1)
 
 btn = tk.Button(root,text=f"2乗",font=("Times New Roman",30),width=4,height=2)
-btn.bind("<1>",jijou)
+btn.bind("<1>",click_jijou)
 btn.grid(row=1,column=2)
 
 
