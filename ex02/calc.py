@@ -66,9 +66,9 @@ btn.grid(row=1,column=2)
 
 
 r,c = 2,0#練習2
-numbers = list(range(9,-1,-1))
-others = ["00","."]
-for i,num in enumerate(numbers+others,1):
+numbers = list(range(9,-1,-1))+["00","."]
+#others = ["00","."]
+for i,num in enumerate(numbers,1):
     btn = tk.Button(root,text=f"{num}",font=("Times New Roman",30),width=4,height=2)
     btn.bind("<1>",button_number)
     btn.grid(row=r,column=c)
