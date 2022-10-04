@@ -5,23 +5,27 @@ import tkinter as tk#モジュールインポート
 import tkinter.messagebox as tkm
 root = tk.Tk()#tkモジュールの中のTKのインスタンスを生成
 
-# def button_click(event):
-#     btn = event.widget
-#     txt = btn["text"]
-#     tkm.showinfo(txt,f"[{txt}]ボタンが押されました")
+def button_number(event):
+    btn = event.widget
+    num = int(btn["text"])
+    tkm.showinfo(num,f"{num}のボタンが押されました")
 
 root.title("tk")#練習1
 root.geometry("300x500")
 
 
 r,c = 0,0
-for num in range(9,-1,-1):
+for i,num in enumerate(range(9,-1,-1),1):
     btn = tk.Button(root,text=f"{num}",font=("",30),width=4,height=2)
+    btn.bind("<1>",button_number)
     btn.grid(row=r,column=c)
     c += 1
-    if c == 3:
-        c = 0
+    if i%3 == 0:
         r += 1
+        c = 0
+
+
+
         
         
 
