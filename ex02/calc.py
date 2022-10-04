@@ -18,10 +18,16 @@ def click_equal(event):
     eqn = entry.get()
     try:
         res = eval(eqn)
+        entry.delete(0,tk.END)
+        entry.insert(tk.END,res)
     except ZeroDivisionError as e:
         tkm.showwarning("警告","あなたは計算を知らないですね")
-    entry.delete(0,tk.END)
-    entry.insert(tk.END,res)
+        entry.delete(0,tk.END)
+    except SyntaxError as e:
+        tkm.showwarning("警告文","あなたは計算が苦手かな?")
+        entry.delete(0,tk.END)
+    
+    
 
 def click_alldel(event):
     entry.delete(0,tk.END)
@@ -31,6 +37,8 @@ def click_del(event):
     num_new = num[:-1]
     entry.delete(0,tk.END)
     entry.insert(tk.END,num_new)
+
+
 
 
 root.title("tk")#練習1
