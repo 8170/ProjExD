@@ -77,8 +77,6 @@ if __name__ == "__main__":
     label = tk.Label(root,text="START",font=("",20))
     label.place(x=105,y=140)
 
-    label1 = tk.Label(root,text="GOAL",font=("",20))
-    label1.place(x=7*100,y=13*100)
 
     # 練習4
     key = "" # 現在押されているキーを表す
