@@ -1,6 +1,7 @@
 import tkinter as tk
 import maze_maker as mm
 import tkinter.messagebox as tkm
+import random
 
 # 練習5
 def key_down(event):
@@ -23,6 +24,7 @@ def key_goal(event):
 def main_proc():
     global mx,my
     global cx, cy
+    global tori,f_lst
     if key == "Up":
         my -= 1
     if key == "Down":
@@ -31,6 +33,7 @@ def main_proc():
         mx -= 1
     if key == "Right":
         mx += 1
+        #tori = tk.PhotoImage(file=random.choice(f_lst))
     if maze_lst[my][mx] == 0:
         cx,cy = mx*100+50,my*100+50
     else:
@@ -60,10 +63,7 @@ if __name__ == "__main__":
 
     #練習9
     maze_lst = mm.make_maze(15,9)
-    
-  
-
-    
+    f_lst = ["./ex03/fig/9.png""./ex03/fig/0.png""./ex03/fig/1.png""./ex03/fig/2.png""./ex03/fig/3.png""./ex03/fig/4.png""./ex03/fig/5.png""./ex03/fig/6.png""./ex03/fig/7.png","./ex03/fig/8.png"]
 
     #練習10
     mm.show_maze(canv,maze_lst)
