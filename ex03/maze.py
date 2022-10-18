@@ -37,7 +37,7 @@ def main_proc():
             mx -= 1
     canv.coords("tori", cx, cy)
     root.after(100, main_proc)
-#aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+
 
 if __name__ == "__main__":
     root = tk.Tk()
@@ -55,7 +55,7 @@ if __name__ == "__main__":
     mm.show_maze(canv,maze_lst)
 
     # 練習3
-    tori = tk.PhotoImage(file="./ex03/fig/5.png") 
+    tori = tk.PhotoImage(file="./ex03/fig/9.png") 
     mx,my = 1,1#マス番号
     cx, cy = mx*100+50,my*100+50#座標
     canv.create_image(cx, cy, image=tori, tag="tori")
