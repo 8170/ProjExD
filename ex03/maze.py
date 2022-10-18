@@ -1,5 +1,6 @@
 import tkinter as tk
 import maze_maker as mm
+import tkinter.messagebox as tkm
 
 # 練習5
 def key_down(event):
@@ -11,6 +12,12 @@ def key_down(event):
 def key_up(event):
     global key
     key = ""
+
+def key_goal(event):
+    key = event.keysym
+    tkm.showinfo("おめでとう",f"あなたはごーるしました！！！！！！")
+    root.destroy()
+    
 
 
 def main_proc():
@@ -35,8 +42,11 @@ def main_proc():
             mx += 1
         if key == "Right":
             mx -= 1
+    if my == 7 and mx == 13:
+        root.bind("<KeyPress>",key_goal)
     canv.coords("tori", cx, cy)
     root.after(100, main_proc)
+
 
 
 if __name__ == "__main__":
@@ -50,15 +60,25 @@ if __name__ == "__main__":
 
     #練習9
     maze_lst = mm.make_maze(15,9)
+    
+  
+
+    
 
     #練習10
     mm.show_maze(canv,maze_lst)
 
     # 練習3
-    tori = tk.PhotoImage(file="./ex03/fig/9.png") 
+    tori = tk.PhotoImage(file="./ex03/fig/9.png") #画像を変更しました。
     mx,my = 1,1#マス番号
     cx, cy = mx*100+50,my*100+50#座標
     canv.create_image(cx, cy, image=tori, tag="tori")
+
+    label = tk.Label(root,text="START",font=("",20))
+    label.place(x=105,y=140)
+
+    label1 = tk.Label(root,text="GOAL",font=("",20))
+    label1.place(x=7*100,y=13*100)
 
     # 練習4
     key = "" # 現在押されているキーを表す
@@ -69,6 +89,8 @@ if __name__ == "__main__":
 
     # 練習7
     main_proc()
+
+    
 
 
 
