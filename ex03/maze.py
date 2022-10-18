@@ -37,7 +37,7 @@ def main_proc():
             mx -= 1
     canv.coords("tori", cx, cy)
     root.after(100, main_proc)
-
+#aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 
 if __name__ == "__main__":
     root = tk.Tk()
