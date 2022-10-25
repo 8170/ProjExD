@@ -29,13 +29,15 @@ def main():
     while True:
         #練習2
         scrn_sfc.blit(bg_sfc,bg_rect)#背景貼り付け
-        #練習3
-        scrn_sfc.blit(tori_sfc,tori_rct)#こうかとん貼り付け
-        pg.display.update()#ディスプレイ表示のアップデート
+        
 
         for event in pg.event.get():
             if event.type == pg.QUIT: return
 
+        scrn_sfc.blit(tori_sfc,tori_rct)#こうかとん貼り付け
+
+
+        pg.display.update()#ディスプレイ表示のアップデート
         clock.tick(1000)
     
 
