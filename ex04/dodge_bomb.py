@@ -14,12 +14,24 @@ def main():
     bg_sfc = pg.image.load("pg_bg.jpg")
     bg_rect = bg_sfc.get_rect()#Rect
 
+
+    #練習3
+    tori_sfc = pg.image.load("fig/3.png")
+    tori_sfc = pg.transform.rotozoom(tori_sfc,0,2.0)
+    tori_rct = tori_sfc.get_rect() #Rect
+    tori_rct.center = 900,400
+    
+
     clock = pg.time.Clock()
+
+  
 
     while True:
         #練習2
-        scrn_sfc.blit(bg_sfc,bg_rect)
-        pg.display.update()
+        scrn_sfc.blit(bg_sfc,bg_rect)#背景貼り付け
+        #練習3
+        scrn_sfc.blit(tori_sfc,tori_rct)#こうかとん貼り付け
+        pg.display.update()#ディスプレイ表示のアップデート
 
         for event in pg.event.get():
             if event.type == pg.QUIT: return
