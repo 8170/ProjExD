@@ -74,6 +74,7 @@ def main():
         if key_stats[pg.K_RIGHT]: 
             tori_rct.centerx += 3
         
+        #練習7
         yoko,tate = check_bound(tori_rct,scrn_rct)
         if yoko == -1:
             if key_stats[pg.K_LEFT]:
@@ -91,7 +92,7 @@ def main():
         scrn_sfc.blit(tori_sfc,tori_rct)#こうかとん貼り付け
 
 
-
+        #練習7
         yoko,tate = check_bound(bomb_rct,scrn_rct)#移動判定(爆弾)
         vx *= yoko
         vy *= tate
@@ -101,7 +102,8 @@ def main():
 
         scrn_sfc.blit(bomb_sfc,bomb_rct)#爆弾貼り付け
 
-        
+        #練習8
+        if tori_rct.colliderect(bomb_rct): return
 
 
         pg.display.update()#ディスプレイ表示のアップデート
