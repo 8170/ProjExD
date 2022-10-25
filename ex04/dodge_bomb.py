@@ -31,6 +31,10 @@ def main():
     bomb_rct.centerx = random.randint(0,scrn_rct.width)
     bomb_rct.centery = random.randint(0,scrn_rct.height)
 
+    #練習6
+    vx,vy = 1,1
+
+
     
 
     clock = pg.time.Clock()
@@ -54,7 +58,11 @@ def main():
        
 
         scrn_sfc.blit(tori_sfc,tori_rct)#こうかとん貼り付け
+
+        bomb_rct.move_ip(vx,vy)
         scrn_sfc.blit(bomb_sfc,bomb_rct)#爆弾貼り付け
+
+        
 
 
         pg.display.update()#ディスプレイ表示のアップデート
