@@ -62,7 +62,7 @@ def main():
 
     bomb_sister_sfc = pg.Surface((50,50))#描画用(20x20)
     bomb_sister_sfc.set_colorkey((0,0,0))#四隅の部分を透過
-    pg.draw.circle(bomb_sister_sfc,(0,255,255),(25,25),25)#円描画(中心10x10)半径10
+    pg.draw.circle(bomb_sister_sfc,(0,0,255),(25,25),25)#円描画(中心10x10)半径10
     bomb_sister_rct = bomb_sister_sfc.get_rect()
     bomb_sister_rct.centerx = random.randint(0,scrn_rct.width)
     bomb_sister_rct.centery = random.randint(0,scrn_rct.height)
