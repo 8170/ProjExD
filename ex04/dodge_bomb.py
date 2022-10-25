@@ -21,7 +21,7 @@ def check_bound(obj_rct,scr_rct):
 
 
 def main():
-    #練習1
+    #練習1 3限講義
     pg.display.set_caption("逃げろ！こうかとん")#タイトルバーに表記
     scrn_sfc = pg.display.set_mode((1450,900))#1600x900の画面Surfaceを生成
     scrn_rct = scrn_sfc.get_rect()
@@ -34,7 +34,7 @@ def main():
     bg_rect = bg_sfc.get_rect()#Rect
 
 
-    #練習3
+    #練習3　3限講義
     tori_sfc = pg.image.load("fig/3.png")
     tori_sfc = pg.transform.rotozoom(tori_sfc,0,2.0)
     tori_rct = tori_sfc.get_rect() #Rect
@@ -44,7 +44,7 @@ def main():
     tori_out_sfc = pg.transform.rotozoom(tori_sfc,0,2.0)
     tori_out_rct = tori_out_sfc.get_rect() #Rect
 
-    #練習5
+    #練習5　3限講義
     bomb_sfc = pg.Surface((20,20))#描画用(20x20)
     bomb_sfc.set_colorkey((0,0,0))#四隅の部分を透過
     pg.draw.circle(bomb_sfc,(255,0,0),(10,10),10)#円描画(中心10x10)半径10
@@ -68,7 +68,7 @@ def main():
     bomb_sister_rct.centery = random.randint(0,scrn_rct.height)
 
 
-    #練習6
+    #練習6　3限講義
     vx,vy = 1,1
     vx_b,vy_b = 5,5
     vx_c,vy_c = 1.2,1.2
@@ -81,7 +81,7 @@ def main():
   
 
     while True:
-        #練習2
+        #練習2　3限講義
         scrn_sfc.blit(bg_sfc,bg_rect)#背景貼り付け
         
 
@@ -118,7 +118,7 @@ def main():
                 tori_rct.centerx -= 10
 
         
-        #練習7
+        #練習7　3限講義
         yoko,tate = check_bound(tori_rct,scrn_rct)
         if yoko == -1:
             if key_stats[pg.K_LEFT]:
@@ -136,7 +136,7 @@ def main():
         scrn_sfc.blit(tori_sfc,tori_rct)#こうかとん貼り付け
 
 
-        #練習7
+        #練習7　3限講義
         yoko,tate = check_bound(bomb_rct,scrn_rct)#移動判定(爆弾)
         vx *= 1.0005
         vy *= 1.0005
@@ -165,7 +165,7 @@ def main():
 
         
 
-        #練習8
+        #練習8　3限講義
         if tori_rct.colliderect(bomb_rct): 
             tori_sfc = pg.image.load("fig/8.png")
             tori_sfc = pg.transform.rotozoom(tori_sfc,0,2.0)
