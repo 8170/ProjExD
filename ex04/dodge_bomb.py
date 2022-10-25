@@ -1,11 +1,13 @@
+from random import random
 import pygame as pg
 import sys
+import random
 
 def main():
     #練習1
     pg.display.set_caption("逃げろ！こうかとん")#タイトルバーに表記
     scrn_sfc = pg.display.set_mode((1450,900))#1600x900の画面Surfaceを生成
-    
+    scrn_rct = scrn_sfc.get_rect()
 
     
 
@@ -20,6 +22,15 @@ def main():
     tori_sfc = pg.transform.rotozoom(tori_sfc,0,2.0)
     tori_rct = tori_sfc.get_rect() #Rect
     tori_rct.center = 900,400
+
+    #練習5
+    bomb_sfc = pg.Surface((20,20))#描画用(20x20)
+    bomb_sfc.set_colorkey((0,0,0))#四隅の部分を透過
+    pg.draw.circle(bomb_sfc,(255,0,0),(10,10),10)#円描画(中心10x10)半径10
+    bomb_rct = bomb_sfc.get_rect()
+    bomb_rct.centerx = random.randint(0,scrn_rct.width)
+    bomb_rct.centery = random.randint(0,scrn_rct.height)
+
     
 
     clock = pg.time.Clock()
@@ -43,6 +54,7 @@ def main():
        
 
         scrn_sfc.blit(tori_sfc,tori_rct)#こうかとん貼り付け
+        scrn_sfc.blit(bomb_sfc,bomb_rct)#爆弾貼り付け
 
 
         pg.display.update()#ディスプレイ表示のアップデート
