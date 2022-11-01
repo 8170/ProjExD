@@ -140,12 +140,11 @@ def main():
             return
 
         if bkd_mikata.rct.colliderect(kkt.rct): #こうかとんが見方のアームに触れたら
-            ratio += 0.5
+            ratio += 0.1
             bkd_mikata = Chimp("fig/fist.png",ratio,(+2,+2),scr)
-            if ratio == 2.5:
-                if bkd_mikata.rct.colliderect(bkd.rct):
-                    return
-            
+            if ratio >= 0.7:
+                return 
+                
         if chi.rct.colliderect(kkt.rct):
             bkd_mikata = Chimp("fig/fist.png",0.1,(+2,+2),scr)
              
