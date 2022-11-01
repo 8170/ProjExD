@@ -66,7 +66,7 @@ class Bomb:
 
 
 #追加機能1(チンパンジークラス)
-class Chimp:
+class Chimpanji:
     def __init__(self,img,zoom,vxy,scr:Screen):
         sfc = pg.image.load(img) # "fig/chimp.png"
         self.sfc = pg.transform.rotozoom(sfc,0,zoom)
@@ -112,9 +112,9 @@ def main():
     # 練習5
     bkd = Bomb((255, 0, 0), 10, (+1, +1), scr)
 
-    bkd_mikata = Chimp("fig/fist.png",0.1,(+3,+3),scr)
+    bkd_mikata = Chimpanji("fig/fist.png",0.1,(+3,+3),scr)
 
-    chi = Chimp("fig/chimp.png",0.5,(+1,+1),scr)
+    chi = Chimpanji("fig/chimp.png",0.5,(+1,+1),scr)
 
     clock = pg.time.Clock() # 練習1
     while True:
@@ -140,12 +140,12 @@ def main():
 
         if bkd_mikata.rct.colliderect(kkt.rct): #こうかとんが見方のアームに触れたら
             ratio += 0.1
-            bkd_mikata = Chimp("fig/fist.png",ratio,(+2,+2),scr)
+            bkd_mikata = Chimpanji("fig/fist.png",ratio,(+2,+2),scr)
             if ratio == 0.7:
                 return 
 
         if chi.rct.colliderect(kkt.rct):
-            bkd_mikata = Chimp("fig/fist.png",0.1,(+2,+2),scr)
+            bkd_mikata = Chimpanji("fig/fist.png",0.1,(+2,+2),scr)
                       
 
         pg.display.update() #練習2
