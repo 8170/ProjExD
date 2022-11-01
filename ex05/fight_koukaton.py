@@ -64,6 +64,7 @@ class Bomb:
         self.blit(scr) # =scr.sfc.blit(self.sfc, self.rct)
 
 
+
 #追加機能1(チンパンジークラス)
 class Chimp:
     def __init__(self,img,zoom,vxy,scr:Screen):
@@ -97,8 +98,6 @@ def check_bound(obj_rct, scr_rct):
     if obj_rct.top < scr_rct.top or scr_rct.bottom < obj_rct.bottom: 
         tate = -1
     return yoko, tate
-
-
 
 
 def main():
@@ -142,16 +141,12 @@ def main():
         if bkd_mikata.rct.colliderect(kkt.rct): #こうかとんが見方のアームに触れたら
             ratio += 0.1
             bkd_mikata = Chimp("fig/fist.png",ratio,(+2,+2),scr)
-            if ratio >= 0.7:
+            if ratio == 0.7:
                 return 
-                
+
         if chi.rct.colliderect(kkt.rct):
             bkd_mikata = Chimp("fig/fist.png",0.1,(+2,+2),scr)
-             
-            
-
-            
-            
+                      
 
         pg.display.update() #練習2
         clock.tick(1000)
